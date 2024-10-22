@@ -10,11 +10,28 @@ public class CalculatorTest {
     @Test
     public void testClick() {
         WebDriver webDriver = new ChromeDriver();
+        //сайт калькулятора
         webDriver.get("https://svyatoslav.biz/testlab/wt/index.php");
-        String name = "/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[2]/td[2]/input";
-        By nameA=By.xpath(name);
-        WebElement filedName = webDriver.findElement(nameA);
-        filedName.sendKeys("John");
+
+        //имя
+        String inputNameXpath = "/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[2]/td[2]/input";
+        By inputNameBy = By.xpath(inputNameXpath);
+        WebElement inputNameWebElement = webDriver.findElement(inputNameBy);
+        inputNameWebElement.sendKeys("John");
+
+        //рост
+        String inputHeightXpath = "/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[3]/td[2]/input";
+        By inputHeightBy = By.xpath(inputHeightXpath);
+        WebElement inputHeightWebElement = webDriver.findElement(inputHeightBy);
+        inputHeightWebElement.sendKeys("180");
+
+        //вес
+        String inputWeightXpath = "/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[4]/td[2]/input";
+        By inputWeightBy = By.xpath(inputWeightXpath);
+        WebElement inputWeightWebElement = webDriver.findElement(inputWeightBy);
+        inputWeightWebElement.sendKeys("80");
+
+        //нажатие на кнопку рассчитать
         String xpath = "/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[6]/td/input";
         By by = By.xpath(xpath);
         WebElement webElement = webDriver.findElement(by);
